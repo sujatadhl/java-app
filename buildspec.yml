@@ -1,18 +1,28 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      java: corretto11  # Specify the Java version you need
+    commands:
+      - echo Installing dependencies...
+      - apt-get update && apt-get install -y zip  # Example: Install zip if needed
   pre_build:
     commands:
-    - echo "Pre-Build Phase"
+      - echo Compiling the application...
+      - mvn clean compile  # Adjust Maven commands based on your build process
   build:
     commands:
-      - echo "Build Phase Started"
-      - mvn clean package
+      - echo Running tests...
+      - mvn test  # Run your tests here
   post_build:
     commands:
-      - echo "Build Succeded"
+      - echo Packaging artifacts...
+      - mvn package  # Package your application (e.g., create a JAR file)
 artifacts:
   files:
-    - */*
-  discard-paths: yes
+    - target/*.jar  # Specify the artifact(s) to be uploaded to S3 or elsewhere
 
+cache:
+  paths:
+    - '/root/.m2/**/*'  # Cache Maven dependencies to speed up builds if applicable
