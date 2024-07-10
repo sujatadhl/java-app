@@ -19,11 +19,7 @@ phases:
     commands:
       - echo Packaging artifacts...
       - mvn package 
-test:
-    commands:
-      - echo "Running tests"
-      - mvn test   
-         
+        
 artifacts:
   files:
     - target/*.jar  
