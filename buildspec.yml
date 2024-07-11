@@ -13,7 +13,8 @@ phases:
       java: corretto11
     commands:
       - echo Installing dependencies...
-      - apt-get update && apt-get install -y mysql-server
+      - apt-get update 
+      - apt-get install -y mysql-server
 
   pre_build:
     commands:
