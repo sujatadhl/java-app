@@ -1,18 +1,27 @@
 version: 0.2
 
+env:
+  secrets-manager:
+    db_password: "java-secrets:password"
+    db_username: "java-secrets:username"
+    db_host: "java-secrets:host"
+
 phases:
   install:
     runtime-versions:
-      java: corretto17
+      java: corretto11
     commands:
       - echo Installing dependencies...
-      - apt-get update && apt-get install -y zip
+      - apt-get update && apt-get install -y maven
   pre_build:
+    commands:
+      - echo connection to database 
+      - mysql -h ${db_host} -P ${db_port} -u ${db_username} -p ${db_password}
+
+  build:
     commands:
       - echo Compiling the application...
       - mvn clean compile
-  build:
-    commands:
       - echo Running tests...
       - mvn test
   post_build:
