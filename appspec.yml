@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /opt/bookstore_spring_boot_project
+hooks:
+  BeforeInstall:
+    - location: scripts/stop_server.sh
+      timeout: 300
+      runas: ec2_user
+  AfterInstall:
+    - location: scripts/start_server.sh
+      timeout: 300
+      runas: ec2_user
+  ApplicationStart:
+    - location: scripts/application_start.sh
+      timeout: 300
+      runas: ec2_user
