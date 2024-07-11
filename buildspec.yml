@@ -2,10 +2,10 @@ version: 0.2
 
 env:
   secrets-manager:
-    db_password: "java-secrets:password"
-    db_username: "java-secrets:username"
-    db_host: "java-secrets:host"
-    db_port: "java-secrets:port"
+    db_password: java-secrets:password
+    db_username: java-secrets:username
+    db_host: java-secrets:host
+    db_port: java-secrets:port
 
 phases:
   install:
