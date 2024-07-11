@@ -18,7 +18,7 @@ phases:
   pre_build:
     commands:
       - echo connection to database 
-      - sudo mysql -h ${db_host} -P ${db_port} -u ${db_username} -p ${db_password}
+      - sudo mysql -h $db_host -P $db_port -u $db_username -p $db_password
 
   build:
     commands:
