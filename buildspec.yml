@@ -34,6 +34,5 @@ phases:
 
 artifacts:
   files:
-    - target/*.jar
-    - scripts/*.sh
+    -'**/*'
    name: code-deploy-sujata
