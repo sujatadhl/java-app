@@ -36,5 +36,4 @@ artifacts:
   files:
     - target/*.jar
     - scripts/*.sh
-    - appspec.yml
    name: code-deploy-sujata
