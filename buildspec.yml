@@ -35,4 +35,3 @@ phases:
 artifacts:
   files:
     - '**/*'
-   name: code-deploy-sujata
