@@ -14,7 +14,7 @@ phases:
     commands:
       - echo Installing dependencies...
       - apt-get update 
-      - apt-get install -y mysql-server
+      - apt-get install -y mysql-client
 
   pre_build:
     commands:
@@ -37,3 +37,4 @@ artifacts:
     - target/*.jar
     - scripts/*.sh
     - appspec.yml
+   name: code-deploy-sujata
